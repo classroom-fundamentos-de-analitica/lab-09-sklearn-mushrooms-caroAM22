@@ -24,6 +24,10 @@ def load_datasets():
     train_dataset = pd.read_csv("train_dataset.csv")
     test_dataset = pd.read_csv("test_dataset.csv")
 
+    from preprocess import preprocesar_datos
+
+    train_dataset, test_dataset = preprocesar_datos(train_dataset, test_dataset)
+
     x_train = train_dataset.drop("type", axis=1)
     y_train = train_dataset["type"]
 
